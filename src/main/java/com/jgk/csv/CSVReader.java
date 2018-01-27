@@ -3,6 +3,7 @@ package com.jgk.csv;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Clock;
 
 public class CSVReader
 {
@@ -19,8 +20,12 @@ public class CSVReader
                 // use comma as separator
                 String[] finandata = line.split(cvsSplitBy);
 
-                System.out.println("Parsed contents [Account Designator= " + finandata[0] +
-                        " , Posted Date=" + finandata[1] + "]");
+                System.out.println("File contents [Account Designator= " + finandata[0] +
+                        " , Posted Date= " + finandata[1] +
+                        " , Serial Number= " + finandata[2] +
+                        " , Description= " + StringUtil.removeQuote(finandata[3]) + "]");
+
+                System.out.println(fixedRecord(finandata));
             }
 
         }
@@ -29,6 +34,11 @@ public class CSVReader
             e.printStackTrace();
         }
 
+    }
+
+    private static String fixedRecord(String[] s)
+    {
+        return String.format("%20s,%15s,%15s", s[0], s[1], s[2]);
     }
 
 }
