@@ -11,7 +11,7 @@ repositories {
 
 jar {
     manifest {
-        attributes 'Implementation-Title': 'Gradle Quickstart',
+        attributes 'Implementation-Title': 'Sample read write to fixed length',
                     'Implementation-Version': version,
                 'Main-Class': 'com.jgk.csv.CSVReader'
     }
