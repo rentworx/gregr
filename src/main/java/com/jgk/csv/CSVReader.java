@@ -16,15 +16,16 @@ public class CSVReader
     {
 
 //  csvPath assigned to a String type
-        String csvPath = "\\data\\gregr-master\\";
+        String csvPath = "\\data\\JavaData\\";
 		
 //  csvFile assiged to a String type
-        String csvFile = "downloadCORPACCT.CSV";
+        String csvFile = "downloadCA.CSV";
 //  line assigned to null
         String line;
 
 // cvsSplitBy assigned to String type = to whatever is in quotes
         String cvsSplitBy = ",";
+		//String cvsSplitBy = null;
 
 // Greg Added on 1/28/2018 at 8:37pm
 		String maccountDesignator="";
@@ -60,7 +61,7 @@ public class CSVReader
 				// Greg Added on 1/28/2018 at 8:37pm
 				if (finandata[0].indexOf("Corporate Checking")>1);{
 				
-				maccountDesignator = "  1";
+				maccountDesignator = "  10000";
 				e.setAccntDesignator(maccountDesignator);
 				
 				}	

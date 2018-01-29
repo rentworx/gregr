@@ -57,9 +57,9 @@ public class Entity
         return amount;
     }
 
-    public void setAmount(double ammount)
+    public void setAmount(double amount)
     {
-        this.amount = ammount;
+        this.amount = amount;
     }
 
     public String getCrdr()
@@ -74,7 +74,7 @@ public class Entity
 
     public String toStringFixed()
     {
-        return String.format("%20s,%12s,%13s,%100s,%15s,%3s",
+        return String.format("%2s,%1s,%1s,%1s,%1s,%1s",
                 getAccntDesignator(),
                 getPostedDate(),
                 getSerialNumber(),
@@ -112,7 +112,7 @@ public class Entity
                 ", postedDate='" + postedDate + '\'' +
                 ", serialNumber='" + serialNumber + '\'' +
                 ", description='" + description + '\'' +
-                ", ammount=" + amount +
+                ", amount=" + amount +
                 ", crdr='" + crdr + '\'' +
                 '}';
     }
