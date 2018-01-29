@@ -9,7 +9,7 @@ public class Entity
     private String postedDate;
     private String serialNumber;
     private String description;
-    private double ammount;
+    private double amount;
     private String crdr;
 
     public String getAccntDesignator()
@@ -52,14 +52,14 @@ public class Entity
         this.description = description;
     }
 
-    public double getAmmount()
+    public double getAmount()
     {
-        return ammount;
+        return amount;
     }
 
-    public void setAmmount(double ammount)
+    public void setAmount(double ammount)
     {
-        this.ammount = ammount;
+        this.amount = ammount;
     }
 
     public String getCrdr()
@@ -79,7 +79,7 @@ public class Entity
                 getPostedDate(),
                 getSerialNumber(),
                 getDescription(),
-                getAmmount(),
+                getAmount(),
                 getCrdr());
     }
 
@@ -90,7 +90,7 @@ public class Entity
         if (this == o) return true;
         if (!(o instanceof Entity)) return false;
         Entity entity = (Entity) o;
-        return Double.compare(entity.getAmmount(), getAmmount()) == 0 &&
+        return Double.compare(entity.getAmount(), getAmount()) == 0 &&
                 Objects.equals(getAccntDesignator(), entity.getAccntDesignator()) &&
                 Objects.equals(getPostedDate(), entity.getPostedDate()) &&
                 Objects.equals(getSerialNumber(), entity.getSerialNumber()) &&
@@ -101,7 +101,7 @@ public class Entity
     @Override
     public int hashCode()
     {
-        return Objects.hash(getAccntDesignator(), getPostedDate(), getSerialNumber(), getDescription(), getAmmount(), getCrdr());
+        return Objects.hash(getAccntDesignator(), getPostedDate(), getSerialNumber(), getDescription(), getAmount(), getCrdr());
     }
 
     @Override
@@ -112,7 +112,7 @@ public class Entity
                 ", postedDate='" + postedDate + '\'' +
                 ", serialNumber='" + serialNumber + '\'' +
                 ", description='" + description + '\'' +
-                ", ammount=" + ammount +
+                ", ammount=" + amount +
                 ", crdr='" + crdr + '\'' +
                 '}';
     }

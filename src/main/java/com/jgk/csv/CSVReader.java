@@ -71,7 +71,7 @@ public class CSVReader
                 e.setSerialNumber(finandata[2]);
 //assigning whatever is ....
                 e.setDescription(StringUtil.removeQuote(finandata[3]));
-                e.setAmmount(Double.valueOf(finandata[4]));
+                e.setAmount(Double.valueOf(finandata[4]));
                 e.setCrdr(finandata[5]);
  
  
@@ -124,9 +124,5 @@ public class CSVReader
 
     }
 
-    private static String fixedRecord(String[] s)
-    {
-        return String.format("%0s,%15s,%15s,%100s,%15s,%4s", s[0], s[1], s[2], StringUtil.removeQuote(s[3]), s[4], s[5]);
-    }
 
 }
