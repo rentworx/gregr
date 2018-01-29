@@ -1,41 +1,110 @@
+//Code
 package com.jgk.csv;
 
+// imports
 import java.io.*;
+// date/time imports
+import java.time.Clock;
+
+// array imports
 import java.util.ArrayList;
 
+// Class CSVReader
 public class CSVReader
 {
     public static void main(String[] args)
     {
-        String csvPath = "\\Users\\jgkenned\\Documents\\Source Code - Research\\IdeaProjects\\Data\\";
+
+//  csvPath assigned to a String type
+        String csvPath = "\\data\\gregr-master\\";
+		
+//  csvFile assiged to a String type
         String csvFile = "downloadCORPACCT.CSV";
+//  line assigned to null
         String line;
+
+// cvsSplitBy assigned to String type = to whatever is in quotes
         String cvsSplitBy = ",";
 
+// Greg Added on 1/28/2018 at 8:37pm
+		String maccountDesignator="";
+		
+		
+		
+// Not sure of this but it looks like you are creating a new instance of ArrayList		
         ArrayList<Entity> records = new ArrayList<>();
+
+
+// taking a shot on this one but you are opening the file and writing to it		
         try (BufferedReader br = new BufferedReader(new FileReader(csvPath + csvFile));
              BufferedWriter writer = new BufferedWriter(new FileWriter(csvPath + csvFile + ".fix")))
         {
+// Initializing maxWidethOfDesc to 0
             int maxWidthOfDesc = 0;
+
+// creating a loop and reading the lines from csvFile and that not null
             while ((line = br.readLine()) != null)
+// Grabbing the contents of the array and assigning them and splitting them with a comma
             {
                 // use comma as separator
                 String[] finandata = line.split(cvsSplitBy);
 
+// creating a new instance of Entity called "e"  ????
                 Entity e = new Entity();
+				
+				
+				
+//assigning whatever is in the array at that position to the property setAccntDesignator				
                 e.setAccntDesignator(finandata[0]);
-                e.setPostedDate(finandata[1]);
+
+				// Greg Added on 1/28/2018 at 8:37pm
+				if (finandata[0].indexOf("Corporate Checking")>1);{
+				
+				maccountDesignator = "  1";
+				e.setAccntDesignator(maccountDesignator);
+				
+				}	
+
+//assigning whatever is in the array at that position to the property setPostedDate
+				e.setPostedDate(finandata[1]);
+//assigning whatever is ....
                 e.setSerialNumber(finandata[2]);
+//assigning whatever is ....
                 e.setDescription(StringUtil.removeQuote(finandata[3]));
                 e.setAmmount(Double.valueOf(finandata[4]));
                 e.setCrdr(finandata[5]);
+ 
+ 
+//writing out "e"
+			
                 records.add(e);
-                writer.write(e.toStringFixed());
+
+			//String isItInThere = "DDA CHECK #";
+				String isItInThere = finandata[3];
+				
+			if  ( isItInThere.contains("DDA CHECK #") )
+			
+			
+			{
+			//not sure about it looks like you are adding a record called "e"
+		
+               writer.write(e.toStringFixed());
+
+//writing out a CR "newLine"
                 writer.newLine();
+			}
 
-                System.out.println(e);
-                System.out.println(e.toStringFixed());
-
+			
+//printing to file "e"
+			
+			
+			System.out.println(e);
+				
+            System.out.println(e.toStringFixed());
+						
+			
+				
+// create a integer var lenDescr  passing arg finandata and it's length ????
                 int lenDescr = StringUtil.removeQuote(finandata[3]).length();
                 if ( lenDescr > maxWidthOfDesc )
                 {
@@ -57,7 +126,7 @@ public class CSVReader
 
     private static String fixedRecord(String[] s)
     {
-        return String.format("%20s,%15s,%15s,%100s,%15s,%4s", s[0], s[1], s[2], StringUtil.removeQuote(s[3]), s[4], s[5]);
+        return String.format("%0s,%15s,%15s,%100s,%15s,%4s", s[0], s[1], s[2], StringUtil.removeQuote(s[3]), s[4], s[5]);
     }
 
 }
