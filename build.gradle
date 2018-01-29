@@ -8,3 +8,11 @@ mainClassName = "com.jgk.csv.CSVReader"
 repositories {
     mavenCentral()
 }
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Sample read write to fixed length',
+                    'Implementation-Version': version,
+                    'Main-Class': 'com.jgk.csv.CSVReader'
+    }
+}
