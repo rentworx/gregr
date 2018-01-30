@@ -86,7 +86,10 @@ public class CSVReader
 
 //assigning whatever is in the array at that position to the property setPostedDate
 				//e.setPostedDate(finandata[1]);
-				e.setPostedDate(StringUtilSlash.removeSlash(finandata[1]));
+				
+				//Greg making changes at 3:57pm on 1/30/2018
+				//e.setPostedDate(StringUtilSlash.removeSlash(finandata[1]));
+				e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
 				
 //assigning whatever is ....
                 e.setSerialNumber(finandata[2]);

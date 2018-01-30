@@ -1,6 +1,18 @@
 Account Designator,Posted Date,Serial Number,"Description",Amount,CR/DR
 
 
+//	firstPart = ""; 
+//	secondPart = "";
+//	thirdPart = "";
+
+
+			// Greg Added 1/30/2018 at 3:25pm
+//			firstPart = (postedDate.substring(0,4)); 
+//			secondPart = ("20") ;
+//			thirdPart = (postedDate.substring(5,2));
+
+
+
 
 
             while ((line = br.readLine()) != null && (finandata[0].indexOf("Account Designator")<1))

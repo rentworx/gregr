@@ -2,8 +2,14 @@ package com.jgk.csv;
 
 import java.util.Objects;
 
+	
+	
+
 public class Entity
 {
+
+	
+	
     //Account Designator,Posted Date,Serial Number,"Description",Amount,CR/DR
     private String accntDesignator;
     private String postedDate;
@@ -11,7 +17,9 @@ public class Entity
     private String description;
     //private double amount;
 	private String amount;
-    private String crdr;
+	private String crdr;
+
+			
 
     public String getAccntDesignator()
     {
@@ -25,11 +33,13 @@ public class Entity
 
     public String getPostedDate()
     {
+
         return postedDate;
     }
 
     public void setPostedDate(String postedDate)
     {
+
         this.postedDate = postedDate;
     }
 
