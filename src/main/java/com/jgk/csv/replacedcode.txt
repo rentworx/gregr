@@ -7,3 +7,15 @@
 			
 			if (isItInThere.indexOf("DDA CHECK #")>1)
 			//not sure about it looks like you are adding a record called "e"
+			
+			
+			if (finandata[0].indexOf("Account Designator")>1)
+				{
+					
+				}
+				
+				
+	&& finandata[0].indexOf("Account Designator")>1)
+
+
+	

@@ -18,6 +18,7 @@ public class CSVReader
 //  csvPath assigned to a String type
         String csvPath = "\\data\\JavaData\\";
 		
+		
 //  csvFile assiged to a String type
         String csvFile = "downloadCA.CSV";
 //  line assigned to null
@@ -30,7 +31,8 @@ public class CSVReader
 // Greg Added on 1/28/2018 at 8:37pm
 		String maccountDesignator="";
 		
-		
+// Greg Added on 1/28/2018 at 8:37pm
+		//int checkForBadline = 0;	
 		
 // Not sure of this but it looks like you are creating a new instance of ArrayList		
         ArrayList<Entity> records = new ArrayList<>();
@@ -82,7 +84,10 @@ public class CSVReader
 
 			//String isItInThere = "DDA CHECK #";
 				String isItInThere = finandata[3];
+				String checkForBadline = finandata[0];
+			
 				
+			
 			if  ( isItInThere.contains("DDA CHECK #") )
 			
 			
@@ -95,6 +100,7 @@ public class CSVReader
                 writer.newLine();
 			}
 
+			
 			
 //printing to file "e"
 			
@@ -116,7 +122,9 @@ public class CSVReader
             System.out.println("max len of description = " + maxWidthOfDesc);
 
             // now write data to a new file in fixed len
-
+			
+		//Greg added on 1/29/2018 at 7:05pm	
+		//checkForBadline++
         }
         catch (IOException e)
         {
