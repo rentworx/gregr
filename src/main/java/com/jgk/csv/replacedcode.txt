@@ -1,5 +1,22 @@
+Account Designator,Posted Date,Serial Number,"Description",Amount,CR/DR
+
+
+
+
+            while ((line = br.readLine()) != null && (finandata[0].indexOf("Account Designator")<1))
+			
+			
+			
+			
  String csvPath = "\\Users\\jgkenned\\Documents\\Source Code - Research\\IdeaProjects\\Data\\";
  
+if (checkForBadline !=1);
+{
+
+checkForBadline++;
+            }
+
+
  
  
  String isItInThere = finandata[3];

@@ -9,7 +9,8 @@ public class Entity
     private String postedDate;
     private String serialNumber;
     private String description;
-    private double amount;
+    //private double amount;
+	private String amount;
     private String crdr;
 
     public String getAccntDesignator()
@@ -52,12 +53,14 @@ public class Entity
         this.description = description;
     }
 
-    public double getAmount()
+    //public double getAmount()
+	public String getAmount()
     {
         return amount;
     }
 
-    public void setAmount(double amount)
+    //public void setAmount(double amount)
+	public void setAmount(String amount)
     {
 		
         this.amount = amount;
@@ -73,6 +76,10 @@ public class Entity
         //this.crdr = crdr;
 		this.crdr = "+";
     }
+//if checkForBadline = false;	
+
+//{
+	
 
     public String toStringFixed()
     {
@@ -87,14 +94,15 @@ public class Entity
 				getPostedDate());
     }
 
-
+//}
     @Override
     public boolean equals(Object o)
     {
         if (this == o) return true;
         if (!(o instanceof Entity)) return false;
         Entity entity = (Entity) o;
-        return Double.compare(entity.getAmount(), getAmount()) == 0 &&
+        //return Double.compare(entity.getAmount(), getAmount()) == 0 &&
+		return Objects.equals(entity.getAmount(), getAmount()) &&
                 Objects.equals(getAccntDesignator(), entity.getAccntDesignator()) &&
                 Objects.equals(getPostedDate(), entity.getPostedDate()) &&
                 Objects.equals(getSerialNumber(), entity.getSerialNumber()) &&

@@ -32,7 +32,8 @@ public class CSVReader
 		String maccountDesignator="";
 		
 // Greg Added on 1/28/2018 at 8:37pm
-		//int checkForBadline = 0;	
+		
+		boolean checkForBadline = true;		
 		
 // Not sure of this but it looks like you are creating a new instance of ArrayList		
         ArrayList<Entity> records = new ArrayList<>();
@@ -42,13 +43,23 @@ public class CSVReader
         try (BufferedReader br = new BufferedReader(new FileReader(csvPath + csvFile));
              BufferedWriter writer = new BufferedWriter(new FileWriter(csvPath + csvFile + ".fix")))
         {
-// Initializing maxWidethOfDesc to 0
+//		if (checkForBadline=false)
+//		{
+			
+		
+		
+		
+// Initializing maxWidthOfDesc to 0
             int maxWidthOfDesc = 0;
-
+			
+	
 // creating a loop and reading the lines from csvFile and that not null
-            while ((line = br.readLine()) != null)
+			//while ((line = br.readLine()) != null && (checkForBadline=false))
+				
+            while ((line = br.readLine()) != null )
 // Grabbing the contents of the array and assigning them and splitting them with a comma
             {
+			
                 // use comma as separator
 				
 				String[] finandata = line.split(cvsSplitBy);
@@ -63,7 +74,10 @@ public class CSVReader
                 e.setAccntDesignator(finandata[0]);
 
 				// Greg Added on 1/28/2018 at 8:37pm
-				if (finandata[0].indexOf("Corporate Checking")>1);{
+				// would like to add on 1/30/2018 at 9:56am 
+				//Account Designator
+				if (finandata[0].indexOf("Corporate Checking")>1);
+				{
 				
 				maccountDesignator = "  10000";
 				e.setAccntDesignator(maccountDesignator);
@@ -71,12 +85,19 @@ public class CSVReader
 				}	
 
 //assigning whatever is in the array at that position to the property setPostedDate
-				e.setPostedDate(finandata[1]);
+				//e.setPostedDate(finandata[1]);
+				e.setPostedDate(StringUtilSlash.removeSlash(finandata[1]));
+				
 //assigning whatever is ....
                 e.setSerialNumber(finandata[2]);
 //assigning whatever is ....
                 e.setDescription(StringUtil.removeQuote(finandata[3]));
-                e.setAmount(Double.valueOf(finandata[4]));
+                
+				//e.setAmount(Double.valueOf(finandata[4]));
+				//e.setAmount(String.valueOf(finandata[4]));
+				e.setAmount(StringUtilPeriod.removePeriod(finandata[4]));
+				
+				
                 e.setCrdr(finandata[5]);
  
  
@@ -86,7 +107,7 @@ public class CSVReader
 
 			//String isItInThere = "DDA CHECK #";
 				String isItInThere = finandata[3];
-				String checkForBadline = finandata[0];
+				
 			
 				
 			
@@ -102,7 +123,8 @@ public class CSVReader
                 writer.newLine();
 			}
 
-			
+//checkForBadline++;
+//}			
 			
 //printing to file "e"
 			
@@ -110,30 +132,42 @@ public class CSVReader
 			System.out.println(e);
 				
             System.out.println(e.toStringFixed());
-						
+			
+
 			
 				
 // create a integer var lenDescr  passing arg finandata and it's length ????
-                int lenDescr = StringUtil.removeQuote(finandata[3]).length();
+                int lenDescr = StringUtilSlash.removeSlash(finandata[3]).length();
                 if ( lenDescr > maxWidthOfDesc )
                 {
                     maxWidthOfDesc = lenDescr;
                 }
-
-            }
+	
             System.out.println("max len of description = " + maxWidthOfDesc);
 
             // now write data to a new file in fixed len
 			
-		//Greg added on 1/29/2018 at 7:05pm	
-		//checkForBadline++
+				//Greg added on 1/30/2018 at 12:20pm
+				
+					
+			//THis brace belongs to the while loop	
+			}
+			
+		//This brace belongs to the If I am trying to get to work
+//		}
+		
+		//THis brace belongs to the try loop
+			
         }
         catch (IOException e)
         {
             e.printStackTrace();
-        }
-
+        //THis brace belongs to the catch
+		}
+		checkForBadline = false;
+		
+	//THis brace belongs to the main class
     }
 
-
+//THis brace belongs to the csvreader class
 }
