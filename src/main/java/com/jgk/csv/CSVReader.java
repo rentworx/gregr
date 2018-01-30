@@ -20,7 +20,7 @@ public class CSVReader
 		
 		
 //  csvFile assiged to a String type
-        String csvFile = "downloadCA.CSV";
+        String csvFile = "download.CSV";
 //  line assigned to null
         String line;
 
@@ -83,7 +83,15 @@ public class CSVReader
 				e.setAccntDesignator(maccountDesignator);
 				
 				}	
-
+				
+				//if (finandata[0].indexOf("Surepower")>1)
+				//{
+				
+				//maccountDesignator = "SP10000";
+				//e.setAccntDesignator(maccountDesignator);
+				
+				//}	
+				
 //assigning whatever is in the array at that position to the property setPostedDate
 				//e.setPostedDate(finandata[1]);
 				
