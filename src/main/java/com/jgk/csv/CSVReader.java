@@ -50,7 +50,9 @@ public class CSVReader
 // Grabbing the contents of the array and assigning them and splitting them with a comma
             {
                 // use comma as separator
-                String[] finandata = line.split(cvsSplitBy);
+				
+				String[] finandata = line.split(cvsSplitBy);
+				
 
 // creating a new instance of Entity called "e"  ????
                 Entity e = new Entity();

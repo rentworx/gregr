@@ -17,5 +17,16 @@
 				
 	&& finandata[0].indexOf("Account Designator")>1)
 
+entity.java
 
+	public String toStringFixed()
+    {
+        return String.format("%2s,%1s,%1s,%1s,%1s,%1s",
+                getAccntDesignator(),
+                getPostedDate(),
+                getSerialNumber(),
+                getDescription(),
+                getAmount(),
+                getCrdr());
+    }
 	

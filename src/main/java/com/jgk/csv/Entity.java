@@ -59,6 +59,7 @@ public class Entity
 
     public void setAmount(double amount)
     {
+		
         this.amount = amount;
     }
 
@@ -69,18 +70,21 @@ public class Entity
 
     public void setCrdr(String crdr)
     {
-        this.crdr = crdr;
+        //this.crdr = crdr;
+		this.crdr = "+";
     }
 
     public String toStringFixed()
     {
-        return String.format("%2s,%1s,%1s,%1s,%1s,%1s",
+        return String.format("%2s%s%s%s%s%s",
+		
                 getAccntDesignator(),
+				getSerialNumber(),
                 getPostedDate(),
-                getSerialNumber(),
-                getDescription(),
+                //getDescription(),
                 getAmount(),
-                getCrdr());
+                getCrdr(),
+				getPostedDate());
     }
 
 
