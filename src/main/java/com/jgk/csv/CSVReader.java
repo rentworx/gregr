@@ -9,6 +9,8 @@ import java.time.Clock;
 // array imports
 import java.util.ArrayList;
 
+
+
 // Class CSVReader
 public class CSVReader
 {
@@ -75,56 +77,27 @@ public class CSVReader
 				
 //assigning whatever is in the array at that position to the property setAccntDesignator				
                 e.setAccntDesignator(finandata[0]);
-
-				// Greg Added on 1/28/2018 at 8:37pm
-				// would like to add on 1/30/2018 at 9:56am 
-				//Account Designator
-				
-				
-				// Comment out If block to test switch
-				/** if (finandata[0].indexOf("Corporate Checking")>1);
-				{
-				
-				maccountDesignator = "  10000";
-				e.setAccntDesignator(maccountDesignator);
-				
-				}	
-				
-				if (finandata[0].indexOf("Surepower")>1);
-				{
-				
-				maccountDesignator = "SP10000";
-				e.setAccntDesignator(maccountDesignator);
-				
-				}	
-				*/
-				
-				
-				//mWhatIsAccntDesignator = finandata[0].indexOf("Corporate Checking");
-				//if (mWhatIsAccntDesignator == true)
-				//if (mWhatIsAccntDesignator > 1)
-				if (finandata[0] == "Corporate Checking  ");
+		
+				if (finandata[0].equals("Corporate Checking  "))
 				{
 					maccountDesignator = "  10000";
 					e.setAccntDesignator(maccountDesignator);
 				} 
 				   
-				//mWhatIsAccntDesignator = finandata[0].indexOf("Surepower Cash");
-				//if (mWhatIsAccntDesignator == true)
-				//if (mWhatIsAccntDesignator > 1)
-				if (finandata[0] == "Surepower Cash      ");			
+						
+			
+				if (finandata[0].equals("Surepower Cash      "))
 				{
 					maccountDesignator = "SP10000";
 					e.setAccntDesignator(maccountDesignator);
 				}
-					
-				//e.setAccntDesignator("WTH");
+				
+				
+				
 				
 //assigning whatever is in the array at that position to the property setPostedDate
-				//e.setPostedDate(finandata[1]);
+//Greg making changes at 3:57pm on 1/30/2018
 				
-				//Greg making changes at 3:57pm on 1/30/2018
-				//e.setPostedDate(StringUtilSlash.removeSlash(finandata[1]));
 				e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
 				
 //assigning whatever is ....
@@ -182,7 +155,7 @@ public class CSVReader
                     maxWidthOfDesc = lenDescr;
                 }
 	
-            System.out.println("max len of description = " + maxWidthOfDesc + " indicator =" + mWhatIsAccntDesignator + "account designator "+ maccountDesignator + "HMM" +finandata[0].indexOf("Corporate Checking")+ "WOW" + finandata[0] +"ABC"  );
+            System.out.println("max len of description = " + maxWidthOfDesc + " indicator =" + maccountDesignator +"WOW" + finandata[0] +"ABC"  );
 
             // now write data to a new file in fixed len
 			

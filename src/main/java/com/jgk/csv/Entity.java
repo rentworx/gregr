@@ -29,6 +29,8 @@ public class Entity
     public void setAccntDesignator(String accntDesignator)
     {
         this.accntDesignator = accntDesignator;
+	    
+		
     }
 
     public String getPostedDate()
@@ -131,7 +133,7 @@ public class Entity
     {
         return "Entity{" +
                 "accntDesignator='" + accntDesignator + '\'' +
-                ", postedDate='" + postedDate + '\'' +
+				", postedDate='" + postedDate + '\'' +
                 ", serialNumber='" + serialNumber + '\'' +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
