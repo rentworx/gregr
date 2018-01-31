@@ -33,7 +33,10 @@ public class CSVReader
 		
 // Greg Added on 1/28/2018 at 8:37pm
 		
-		boolean checkForBadline = true;		
+		boolean checkForBadline = true;	
+
+		//boolean mWhatIsAccntDesignator = true;
+		int mWhatIsAccntDesignator = 0;
 		
 // Not sure of this but it looks like you are creating a new instance of ArrayList		
         ArrayList<Entity> records = new ArrayList<>();
@@ -76,7 +79,10 @@ public class CSVReader
 				// Greg Added on 1/28/2018 at 8:37pm
 				// would like to add on 1/30/2018 at 9:56am 
 				//Account Designator
-				if (finandata[0].indexOf("Corporate Checking")>1);
+				
+				
+				// Comment out If block to test switch
+				/** if (finandata[0].indexOf("Corporate Checking")>1);
 				{
 				
 				maccountDesignator = "  10000";
@@ -91,6 +97,28 @@ public class CSVReader
 				e.setAccntDesignator(maccountDesignator);
 				
 				}	
+				*/
+				
+				
+				//mWhatIsAccntDesignator = finandata[0].indexOf("Corporate Checking");
+				//if (mWhatIsAccntDesignator == true)
+				//if (mWhatIsAccntDesignator > 1)
+				if (finandata[0] == "Corporate Checking  ");
+				{
+					maccountDesignator = "  10000";
+					e.setAccntDesignator(maccountDesignator);
+				} 
+				   
+				//mWhatIsAccntDesignator = finandata[0].indexOf("Surepower Cash");
+				//if (mWhatIsAccntDesignator == true)
+				//if (mWhatIsAccntDesignator > 1)
+				if (finandata[0] == "Surepower Cash      ");			
+				{
+					maccountDesignator = "SP10000";
+					e.setAccntDesignator(maccountDesignator);
+				}
+					
+				//e.setAccntDesignator("WTH");
 				
 //assigning whatever is in the array at that position to the property setPostedDate
 				//e.setPostedDate(finandata[1]);
@@ -154,7 +182,7 @@ public class CSVReader
                     maxWidthOfDesc = lenDescr;
                 }
 	
-            System.out.println("max len of description = " + maxWidthOfDesc);
+            System.out.println("max len of description = " + maxWidthOfDesc + " indicator =" + mWhatIsAccntDesignator + "account designator "+ maccountDesignator + "HMM" +finandata[0].indexOf("Corporate Checking")+ "WOW" + finandata[0] +"ABC"  );
 
             // now write data to a new file in fixed len
 			
