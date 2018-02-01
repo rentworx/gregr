@@ -1,6 +1,57 @@
 Account Designator,Posted Date,Serial Number,"Description",Amount,CR/DR
 
 
+
+??
+
+// split(".") does not work since the dot has a 
+// a special meaning for regular expressions
+String date = "21.03.2013";
+String[] nums = date.split("\\.");
+for(String s : nums){
+    System.out.println(s);
+}
+
+//
+
+//
+String moString ="";
+		String daString ="";
+		String yyyyString ="";
+		
+		
+        //return s.replace("17", "2017");
+		moString=s.substring(1,2);
+		
+		if integer(mostring) >9 && integer(mostring) <13 
+		{
+		
+		}
+		
+		daString=s.substring(4,2);
+		yyyyString=s.substring(6,2);
+    
+	
+	
+//
+
+	
+		int length = sString.length();
+		if length = 8;
+		//12/1/2017
+		
+		mm = s.substring(0, 2);
+		dd = s.substring(4,2);
+		yyyy = "20" + s.substring(8,2);
+		
+		newDate = mm+dd+yyyy
+		return  
+		
+        //return s.replace("/17", "2017");
+		
+		
+		
+
 //	firstPart = ""; 
 //	secondPart = "";
 //	thirdPart = "";

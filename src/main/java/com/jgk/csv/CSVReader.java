@@ -80,7 +80,7 @@ public class CSVReader
 		
 				if (finandata[0].equals("Corporate Checking  "))
 				{
-					maccountDesignator = "  10000";
+					maccountDesignator = "  100000";
 					e.setAccntDesignator(maccountDesignator);
 				} 
 				   
@@ -88,7 +88,7 @@ public class CSVReader
 			
 				if (finandata[0].equals("Surepower Cash      "))
 				{
-					maccountDesignator = "SP10000";
+					maccountDesignator = "SP100000";
 					e.setAccntDesignator(maccountDesignator);
 				}
 				
@@ -98,7 +98,13 @@ public class CSVReader
 //assigning whatever is in the array at that position to the property setPostedDate
 //Greg making changes at 3:57pm on 1/30/2018
 				
-				e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
+				
+				//GetMonthFromDate.simpleDateformat
+				//e.setPostedDate(GetMonthFromDate.simpleDateformat(finandata[1]));
+				
+				//e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
+				e.setPostedDate(DateUtilStuff.parseStuff(finandata[1]));
+				
 				
 //assigning whatever is ....
                 e.setSerialNumber(finandata[2]);
@@ -155,7 +161,7 @@ public class CSVReader
                     maxWidthOfDesc = lenDescr;
                 }
 	
-            System.out.println("max len of description = " + maxWidthOfDesc + " indicator =" + maccountDesignator +"WOW" + finandata[0] +"ABC"  );
+            System.out.println( "The postedDate is  "+ finandata[1] + "max len of description = " + maxWidthOfDesc + " indicator =" + maccountDesignator +"WOW" + finandata[0] +"ABC"  );
 
             // now write data to a new file in fixed len
 			
