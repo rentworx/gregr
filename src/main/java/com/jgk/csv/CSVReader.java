@@ -9,7 +9,21 @@ import java.time.Clock;
 // array imports
 import java.util.ArrayList;
 
+// data import
+import java.util.Date;
 
+import java.time.format.DateTimeFormatter;
+
+
+
+// new imports below
+import java.time.Instant;
+import java.time.ZonedDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+
+
+// new imports above
 
 // Class CSVReader
 public class CSVReader
@@ -32,6 +46,11 @@ public class CSVReader
 
 // Greg Added on 1/28/2018 at 8:37pm
 		String maccountDesignator="";
+		//Date localDate = new Date();
+		Date localDate = new Date(2018,01,21);
+			
+
+		
 		
 // Greg Added on 1/28/2018 at 8:37pm
 		
@@ -99,14 +118,25 @@ public class CSVReader
 //Greg making changes at 3:57pm on 1/30/2018
 				
 				
-				//GetMonthFromDate.simpleDateformat
-				//e.setPostedDate(GetMonthFromDate.simpleDateformat(finandata[1]));
+				// Trying new route with Dateformatter 2/6/2017 
 				
-				// GOOD ONE e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
-				// TWO ERRORS ONE e.setPostedDate(DateUtilStuff.parseStuff(finandata[1]));
-				// Another route one
-				e.setPostedDate(DateTimeFormatter.LocalDateTime(finandata[1]));
+//			mDateToBeFormatted = finandata[1];
+//				e.setDateTimeFormatter.ISO_INSTANT.format(mDateToBeFormatted);
 				
+//
+
+
+// Greg Added on 2/6/2018 at 11:43pm
+		//DateTimeFormatter mDateToBeFormatted = mDateToBeFormatted.now();
+
+				//e.setlocalDate = localDateTime.format(DateTimeFormatter.ISO_DATE);
+			//localDate = DateTimeFormatter.ISO_LOCAL_DATE(finandata[1]);
+			//localDate = DateTimeFormatter.LocalDate.parse((finandata[1]),DateTimeFormatter.ISO_LOCAL_DATE);
+			//localDate = DateTimeFormatter.LocalDate.parse((finandata[1]),ISO_LOCAL_DATE);
+			localDate = DateTimeFormatter.LocalDate.parse(finandata[1]);
+			
+		
+		
 				
 //assigning whatever is ....
                 e.setSerialNumber(finandata[2]);
@@ -163,7 +193,7 @@ public class CSVReader
                     maxWidthOfDesc = lenDescr;
                 }
 	
-            System.out.println( "The postedDate is  "+ finandata[1] + "max len of description = " + maxWidthOfDesc + " indicator =" + maccountDesignator +"WOW" + finandata[0] +"ABC"  );
+            System.out.println( "The postedDate is"+ finandata[1] + "max len of description = " + maxWidthOfDesc + " indicator =" + maccountDesignator +"WOW" + finandata[0] +"ABC"  );
 
             // now write data to a new file in fixed len
 			
