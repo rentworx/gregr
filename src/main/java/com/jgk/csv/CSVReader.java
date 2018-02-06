@@ -102,8 +102,10 @@ public class CSVReader
 				//GetMonthFromDate.simpleDateformat
 				//e.setPostedDate(GetMonthFromDate.simpleDateformat(finandata[1]));
 				
-				//e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
-				e.setPostedDate(DateUtilStuff.parseStuff(finandata[1]));
+				// GOOD ONE e.setPostedDate(StringUtilStuff.removeStuff(StringUtilSlash.removeSlash(finandata[1])));
+				// TWO ERRORS ONE e.setPostedDate(DateUtilStuff.parseStuff(finandata[1]));
+				// Another route one
+				e.setPostedDate(DateTimeFormatter.LocalDateTime(finandata[1]));
 				
 				
 //assigning whatever is ....
