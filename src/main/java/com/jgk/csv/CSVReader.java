@@ -49,10 +49,10 @@ public class CSVReader
 // Greg Added on 1/28/2018 at 8:37pm
 		String maccountDesignator="";
 		//Date localDate = new Date();
-		Date localDate = new Date(2018,01,21);
-			
+		//Date localDate = new Date(2018,01,21);
+		Date mlocalDate = new Date(); 	
 
-		
+		String string ="";
 		
 // Greg Added on 1/28/2018 at 8:37pm
 		
@@ -113,7 +113,7 @@ public class CSVReader
 					e.setAccntDesignator(maccountDesignator);
 				}
 				
-				
+				e.setPostedDate(finandata[1]);
 				
 				
 //assigning whatever is in the array at that position to the property setPostedDate
@@ -135,9 +135,25 @@ public class CSVReader
 			//localDate = DateTimeFormatter.ISO_LOCAL_DATE(finandata[1]);
 			//localDate = DateTimeFormatter.LocalDate.parse((finandata[1]),DateTimeFormatter.ISO_LOCAL_DATE);
 			//localDate = DateTimeFormatter.LocalDate.parse((finandata[1]),ISO_LOCAL_DATE);
-			localDate = DateTimeFormatter.LocalDate.parse(finandata[1]);
 			
+			/**			DateTimeFormatter formatter = DateTimeFormatter.BASIC_ISO_DATE;
+
+			String formattedDate = formatter.format(finandata[1]);
+			
+			e.setPostedDate=formattedDate;
+			*/
+			
+			
+			
+			/** 
+			String string = finandata[1];
+			DateFormat format = new SimpleDateFormat("MMddyyyy", Locale.ENGLISH);
+			Date date = format.parse(string);
+			*/
+			
+			//SimpleDateFormat.parse(postedDate);
 		
+			
 		
 				
 //assigning whatever is ....
