@@ -3,8 +3,7 @@ package com.jgk.csv;
 
 // imports
 import java.io.*;
-// date/time imports
-import java.time.Clock;
+
 
 // array imports
 import java.util.ArrayList;
@@ -12,11 +11,14 @@ import java.util.ArrayList;
 // data import
 import java.util.Date;
 
+
+// date/time imports
 import java.time.format.DateTimeFormatter;
 
-
+import java.time.Clock;
 
 // new imports below
+
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.time.ZoneId;

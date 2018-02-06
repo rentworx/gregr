@@ -1,23 +1,5 @@
 //Java 8 Date and Time Parsing and Formatting Microtutorial
-//datetime.java
-//import java.time.format.DateTimeFormatter;
 
-
-/**
-//Package
-public final class StringUtil
-{
-	//Constructor
-    private StringUtil(){}
-
-	//Method
-    public static String removeQuote(String s)
-    {
-        return s.replace("\"", "");
-    }
-}
-
-*/
 // Package Name
 public final class DateTimeFormatter
 {
@@ -27,14 +9,17 @@ public final class DateTimeFormatter
 	
 	
 	//Method
-    private static Date localDate(Date d)
+	private static Date localDate(Date d)
 	{
-		localDate.parse(financial[1],DateTimeFormatter.ISO_LOCAL_DATE);
+		//DateTimeFormatter. ahead of iso_local...
 		
-		//return d.replace(localDate,d);
-		return;
+		LocalDate.parse((financial[1]),ISO_LOCAL_DATE);
+		
+		return d.replace(localDate,d);
+	//	return;
    
 	}
+	
 
 }
 /**
