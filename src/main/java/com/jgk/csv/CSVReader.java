@@ -113,7 +113,8 @@ public class CSVReader
 					e.setAccntDesignator(maccountDesignator);
 				}
 				
-				e.setPostedDate(finandata[1]);
+			
+				
 				
 				
 //assigning whatever is in the array at that position to the property setPostedDate
@@ -135,7 +136,11 @@ public class CSVReader
 			//localDate = DateTimeFormatter.ISO_LOCAL_DATE(finandata[1]);
 			//localDate = DateTimeFormatter.LocalDate.parse((finandata[1]),DateTimeFormatter.ISO_LOCAL_DATE);
 			//localDate = DateTimeFormatter.LocalDate.parse((finandata[1]),ISO_LOCAL_DATE);
+	
+			e.setPostedDate(StringUtilSlash.removeSlash(finandata[1]));
+			//e.setPostedDate(finandata[1]);
 			
+	
 			/**			DateTimeFormatter formatter = DateTimeFormatter.BASIC_ISO_DATE;
 
 			String formattedDate = formatter.format(finandata[1]);
