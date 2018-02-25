@@ -1,25 +1,21 @@
 package com.jgk.csv;
 
+import java.text.DecimalFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-	
-	
 
 public class Entity
 {
-
-	
-	
     //Account Designator,Posted Date,Serial Number,"Description",Amount,CR/DR
     private String accntDesignator;
-    private String postedDate;
+    private LocalDate postedDate;
     private String serialNumber;
     private String description;
-    //private double amount;
-	private String amount;
-	private String crdr;
+    private double amount;
+    private String crdr;
 
-			
 
     public String getAccntDesignator()
     {
@@ -29,19 +25,15 @@ public class Entity
     public void setAccntDesignator(String accntDesignator)
     {
         this.accntDesignator = accntDesignator;
-	    
-		
     }
 
-    public String getPostedDate()
+    public LocalDate getPostedDate()
     {
-
         return postedDate;
     }
 
-    public void setPostedDate(String postedDate)
+    public void setPostedDate(LocalDate postedDate)
     {
-
         this.postedDate = postedDate;
     }
 
@@ -65,16 +57,13 @@ public class Entity
         this.description = description;
     }
 
-    //public double getAmount()
-	public String getAmount()
+    public double getAmount()
     {
         return amount;
     }
 
-    //public void setAmount(double amount)
-	public void setAmount(String amount)
+    public void setAmount(double amount)
     {
-		
         this.amount = amount;
     }
 
@@ -85,28 +74,26 @@ public class Entity
 
     public void setCrdr(String crdr)
     {
-        //this.crdr = crdr;
-		this.crdr = "+";
+        this.crdr = crdr;
     }
-//if checkForBadline = false;	
-
-//{
-	
 
     public String toStringFixed()
     {
-        return String.format("%2s%s%s%s%s%s",
-		
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyy");
+        String formattedPostedDate = getPostedDate().format(formatter);
+
+        DecimalFormat numFormatter = new DecimalFormat("00000000000");
+        String formattedAmount = numFormatter.format(100*getAmount());
+
+        return String.format("%s%s%s%s+%s",
                 getAccntDesignator(),
-				getSerialNumber(),
-                getPostedDate(),
-                //getDescription(),
-                getAmount(),
-                getCrdr(),
-				getPostedDate());
+                getSerialNumber(),
+                formattedPostedDate,
+                formattedAmount,
+                formattedPostedDate);
     }
 
-//}
+    //}
     @Override
     public boolean equals(Object o)
     {
@@ -114,7 +101,7 @@ public class Entity
         if (!(o instanceof Entity)) return false;
         Entity entity = (Entity) o;
         //return Double.compare(entity.getAmount(), getAmount()) == 0 &&
-		return Objects.equals(entity.getAmount(), getAmount()) &&
+        return Objects.equals(entity.getAmount(), getAmount()) &&
                 Objects.equals(getAccntDesignator(), entity.getAccntDesignator()) &&
                 Objects.equals(getPostedDate(), entity.getPostedDate()) &&
                 Objects.equals(getSerialNumber(), entity.getSerialNumber()) &&
@@ -133,7 +120,7 @@ public class Entity
     {
         return "Entity{" +
                 "accntDesignator='" + accntDesignator + '\'' +
-				", postedDate='" + postedDate + '\'' +
+                ", postedDate='" + postedDate + '\'' +
                 ", serialNumber='" + serialNumber + '\'' +
                 ", description='" + description + '\'' +
                 ", amount=" + amount +
