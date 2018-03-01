@@ -14,11 +14,12 @@ public class CSVReader
     public static void main(String[] args) throws Exception
     {
 
-		String csvPath = "\\Users\\jgkenned\\Documents\\Source Code - Research\\IdeaProjects\\Data\\";
-        //String csvPath = "\\data\\JavaData\\";
+		//String csvPath = "\\Users\\jgkenned\\Documents\\Source Code - Research\\IdeaProjects\\Data\\";
+        String csvPath = "G:\\winffs\\data\\bank interface\\";
 
         //String csvFile = "download.CSV";
-        String csvFile = "downloadCORPACCTORIGINAL.csv";
+        //String csvFile = "downloadCORPACCTORIGINAL.csv";
+		String csvFile = "download.csv";
 
 
 // cvsSplitBy assigned to String type = to whatever is in quotes
@@ -30,7 +31,8 @@ public class CSVReader
 
 // taking a shot on this one but you are opening the file and writing to it		
         try (BufferedReader br = new BufferedReader(new FileReader(csvPath + csvFile));
-             BufferedWriter writer = new BufferedWriter(new FileWriter(csvPath + csvFile + ".out")))
+             //BufferedWriter writer = new BufferedWriter(new FileWriter(csvPath + csvFile + ".out")))
+			 BufferedWriter writer = new BufferedWriter(new FileWriter(csvPath + "brf.txt")))
         {
 
 			int lineNum = 0; // used to skip the first line which is a header
@@ -49,7 +51,7 @@ public class CSVReader
 					String accntDesignator = null;
 					if (finandata[0].trim().equalsIgnoreCase("Corporate Checking"))
 					{
-						accntDesignator = "  100000";
+						accntDesignator = "  10000";
 					}
 					else if (finandata[0].trim().equalsIgnoreCase("Surepower Cash"))
 					{
