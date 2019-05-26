@@ -5,6 +5,7 @@
 /tmp
 /out-tsc
 /out
+/build
 
 # dependencies
 /node_modules
@@ -35,6 +36,7 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/.gradle
 
 # System Files
 .DS_Store
