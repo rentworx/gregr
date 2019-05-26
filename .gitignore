@@ -1,4 +1,4 @@
 .gradle
 .idea
-gregr.iml
+*.iml
 build
