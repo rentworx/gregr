@@ -16,7 +16,8 @@ public class CSVReader
 
 		//String csvPath = "\\Users\\jgkenned\\Documents\\Source Code - Research\\IdeaProjects\\Data\\";
         String csvPath = "G:\\winffs\\data\\bank interface\\";
-
+		//String csvPath = "c:\\winffs\\data\\bank interface\\";
+		
         //String csvFile = "download.CSV";
         //String csvFile = "downloadCORPACCTORIGINAL.csv";
 		String csvFile = "download.csv";
@@ -57,6 +58,14 @@ public class CSVReader
 					{
 						accntDesignator = "SP100000";
 					}
+					
+					//New Code on 1/25/2019 at 2:33pm for New Bank Account
+					else if (finandata[0].trim().equalsIgnoreCase("INSURANCENOW"))
+					{
+						//AcctDesignator needs to be changed to whatever it actually is
+						accntDesignator = "SP1000000";
+					}
+					
 					else
 					{
 						throw new Exception("Illegal account designator");
@@ -65,7 +74,7 @@ public class CSVReader
 
 					try
 					{
-						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy", Locale.ENGLISH);
+						DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yy", Locale.ENGLISH);
 						LocalDate date = LocalDate.parse(finandata[1], formatter);
 						e.setPostedDate(date);
 					}
@@ -107,12 +116,14 @@ public class CSVReader
 					e.setDescription(finandata[3]);
 					e.setAmount(Double.parseDouble(finandata[4]));
 					e.setCrdr(finandata[5]);
+					
 
 					records.add(e);
-
+					
 					//String isItInThere = "DDA CHECK #";
 					if (e.getDescription().contains("DDA CHECK #"))
 					{
+
 						// now write data to a new file in fixed len
 						writer.write(e.toStringFixed());
 						System.out.println(e.toStringFixed());

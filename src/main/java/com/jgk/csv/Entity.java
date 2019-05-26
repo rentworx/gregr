@@ -15,7 +15,9 @@ public class Entity
     private String description;
     private double amount;
     private String crdr;
-
+	private int snlength;
+	private int fivedigits = 5;
+	private int fourdigits = 4;
 
     public String getAccntDesignator()
     {
@@ -79,7 +81,15 @@ public class Entity
 
     public String toStringFixed()
     {
+		
+		//added on 5/2/2019 to determine string length
+		//int snlength = serialNumber.length();
+		//snlength = 10 - snlength;
+		//serialNumber = String.format("%05d", serialNumber);
+		
+		
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMddyyyy");
+		
         String formattedPostedDate = getPostedDate().format(formatter);
 
         DecimalFormat numFormatter = new DecimalFormat("00000000000");
@@ -88,10 +98,11 @@ public class Entity
         return String.format("%s%s%s%s+%s",
                 getAccntDesignator(),
                 getSerialNumber(),
-                formattedPostedDate,
+				formattedPostedDate,
                 formattedAmount,
                 formattedPostedDate);
-    }
+	}
+
 
     //}
     @Override
@@ -113,6 +124,8 @@ public class Entity
     public int hashCode()
     {
         return Objects.hash(getAccntDesignator(), getPostedDate(), getSerialNumber(), getDescription(), getAmount(), getCrdr());
+		
+		
     }
 
     @Override
