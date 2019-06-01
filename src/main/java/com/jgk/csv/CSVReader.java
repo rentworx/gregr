@@ -49,7 +49,7 @@ public class CSVReader
         // cvsSplitBy assigned to String type = to whatever is in quotes
         String cvsSplitBy = ",";
         processFile(file1_input, file1_output, cvsSplitBy);
-        processFile(file2_input, file2_output, cvsSplitBy);
+        //processFile(file2_input, file2_output, cvsSplitBy);
     }
 
     /**
@@ -76,6 +76,14 @@ public class CSVReader
                 {
                     // use comma as separator
                     String[] finandata = line.split(cvsSplitBy);
+                    if (finandata.length == 7) // should only have 6 columns
+                    {
+                        // bad data condition, we will attempt to fix it here
+                        finandata[3] = finandata[3] + finandata[4];
+                        finandata[4] = finandata[5];
+                        finandata[5] = finandata[6];
+                        finandata[6] = ""; //just clear it out, not used
+                    }
 
                     Entity e = new Entity();
 
@@ -104,7 +112,7 @@ public class CSVReader
 
                     try
                     {
-                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/d/yyyy", Locale.ENGLISH);
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/d/yy", Locale.ENGLISH);
                         LocalDate date = LocalDate.parse(finandata[1], formatter);
                         e.setPostedDate(date);
                     }
