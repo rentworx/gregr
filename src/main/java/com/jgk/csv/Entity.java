@@ -124,8 +124,6 @@ public class Entity
     public int hashCode()
     {
         return Objects.hash(getAccntDesignator(), getPostedDate(), getSerialNumber(), getDescription(), getAmount(), getCrdr());
-		
-		
     }
 
     @Override
